@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="css/main.css">
+        <title>My VueJS app</title>
+    </head>
+    <body>
+        <div id="vueApp">
+            <h1 class="welcome">To-Do List</h1>
+
+            
+        </div>
+       
+       <div id="vueList">
+
+
+        <input v-model="newItem" v-on:keyup.enter='addItem' id="activity"/> 
+        <button @click.prevent='addItem' id="addbutton">Add Item</button>
+        
+        <h2>List: </h2>
+       
+
+        <ul v-for="(list, index) in lists" v-bind:key="list.id">
+            <li>{{list.item}}
+                <span @click="remove(index)" class="remove">x</span>
+                
+                
+                <input type="checkbox" v-model = "list.checked"> 
+            </li>
+        </ul>
+       </div>
+    
+       
+        
+        <script src="js/vue.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
